@@ -14,16 +14,8 @@ function HomePage() {
           <Link to="/CalculateGrossWages">Calculate Gross Wages</Link>
         </li>
         <li
-            class="font-medium text-blue-600 hover:underline w-full border-b-2 border-neutral-100 border-opacity-100 py-4 dark:border-opacity-50">
-            Use Case 3
-        </li>
-        <li
-            class="font-medium text-blue-600 hover:underline w-full border-b-2 border-neutral-100 border-opacity-100 py-4 dark:border-opacity-50">
-            Use Case 4
-        </li>
-        <li
             class="font-medium text-blue-600 hover:underline w-full py-4">
-            Use Case 5
+            Check back soon for more.
         </li>
       </ul>
     </div>
