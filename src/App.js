@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import CalculateGrossWages from './components/CalculateGrossWages';
+import OrgHierarchy from './components/OrgHierarchy';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={ <HomePage /> } />
           <Route path="/calculateGrossWages" element={< CalculateGrossWages /> } />
+          <Route path="/orgHierarchy" element={< OrgHierarchy /> } />
         </Routes>
       </Router>
     </div>
