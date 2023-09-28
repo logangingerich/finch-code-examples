@@ -11,10 +11,13 @@ function HomePage() {
           <br />
       <ul>
         <li className="font-medium text-blue-600 hover:underline w-full border-b-2 border-neutral-100 border-opacity-100 py-4 dark:border-opacity-50">
-          <Link to="/CalculateGrossWages">Calculate Gross Wages</Link>
+          <Link to="/calculateGrossWages">Calculate Gross Wages</Link>
         </li>
         <li className="font-medium text-blue-600 hover:underline w-full border-b-2 border-neutral-100 border-opacity-100 py-4 dark:border-opacity-50">
-          <Link to="/OrgHierarchy">Build Organizational Hierarchy</Link>
+          <Link to="/orgHierarchy">Build Organizational Hierarchy</Link>
+        </li>
+        <li className="font-medium text-blue-600 hover:underline w-full border-b-2 border-neutral-100 border-opacity-100 py-4 dark:border-opacity-50">
+          <Link to="/filterInactive">Filter out Inactive Employees from /directory response and reformat for /individual and /employee</Link>
         </li>
         <li
             class="font-medium text-blue-600 hover:underline w-full py-4">

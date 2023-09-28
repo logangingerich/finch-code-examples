@@ -8,36 +8,24 @@ import {
   
   initTE({ Clipboard, Ripple });
 
-function OrgHierarchy() {
+function FilterInactive() {
   const [jsonData, setJsonData] = useState('');
-  const [hierarchy, setHierarchy] = useState('');
+  const [active, setActive] = useState('');
 
-  const createHierarchy = (employee_list, managerId = null) => {
+  const filterInactiveAndFormat = (employees) => {
     try {
-      // Parse the user-entered JSON data
-     // employee_list = JSON.parse(jsonData);
-      console.log(typeof employee_list)
-      let structure = [];
 
-      for (let employee of employee_list) {
-        console.log(employee.id)
-        if ((managerId === null && employee.manager.id === null) || (employee.manager.id === managerId)) {
-          let children = createHierarchy(employee_list, employee.id);
-    
-          if (children.length > 0) {
-            employee.subordinates = children;
-          }
-    
-          structure.push(employee);
-        }
-      }
+      let output = [];
 
-      // Update the state with the calculated gross wages
-      setHierarchy(structure);
-      return structure;
+      output = employees
+        .filter(employee => employee.is_active && !('end_date' in employee))
+        .map(employee => ({'individual_id': employee.id}));
+
+      setActive(output);
+      return output;
     } catch (error) {
       console.error('An error occurred:', error);
-      setHierarchy(null);
+      setActive(null);
     }
   };
 
@@ -441,7 +429,7 @@ let demoCode =
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <h3 className="text-4xl font-bold tracking-tight sm:text-6xl">Build Organizational Hierarchy</h3>
+      <h3 className="text-4xl font-bold tracking-tight sm:text-6xl">Filter out inactive employees and reformat for /individual and /employment</h3>
       <br />
       <textarea
         className="block p-4 text-gray-900 border border-black rounded-lg bg-gray-100 sm:text-md focus:ring-blue-500 focus:border-blue-500"
@@ -452,16 +440,16 @@ let demoCode =
         onChange={(e) => setJsonData(e.target.value)}
       ></textarea>
         <br />
-      <button className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" onClick={() => createHierarchy(JSON.parse(jsonData))}>Calculate</button>
+      <button className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" onClick={() => filterInactiveAndFormat(JSON.parse(jsonData))}>Calculate</button>
       <br />
-      { hierarchy ? 
-        <div>
-          <h2 className="text-4xl font-extrabold">Organizational Hierarchy</h2>
+      { active ? 
+        <div className="max-w-2xl">
+          <h2 className="text-4xl font-extrabold">Active Employee IDs to use with Finch /individual and /employment endpoints</h2>
           <br />
           <ul className="divide-y divide-gray-200">
             <li>
             <pre className="language-json"><code className="text-sm">
-            {JSON.stringify(hierarchy, null, 2)}
+            {JSON.stringify(active, null, 2)}
             </code></pre>
               </li>
           </ul>
@@ -491,4 +479,4 @@ let demoCode =
   )
 }
 
-export default OrgHierarchy;
+export default FilterInactive;
