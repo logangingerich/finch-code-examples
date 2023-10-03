@@ -5,6 +5,7 @@ import HomePage from './components/HomePage';
 import CalculateGrossWages from './components/CalculateGrossWages';
 import OrgHierarchy from './components/OrgHierarchy';
 import FilterInactive from './components/FilterInactive';
+import PaymentToPayStatement from './components/PaymentToPayStatement';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/calculateGrossWages" element={< CalculateGrossWages /> } />
           <Route path="/orgHierarchy" element={< OrgHierarchy /> } />
           <Route path="/filterInactive" element={< FilterInactive /> } />
+          <Route path="/paymentToPayStatement" element={< PaymentToPayStatement /> } />
         </Routes>
       </Router>
     </div>

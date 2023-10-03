@@ -19,6 +19,9 @@ function HomePage() {
         <li className="font-medium text-blue-600 hover:underline w-full border-b-2 border-neutral-100 border-opacity-100 py-4 dark:border-opacity-50">
           <Link to="/filterInactive">Filter out Inactive Employees from /directory response and reformat for /individual and /employee</Link>
         </li>
+        <li className="font-medium text-blue-600 hover:underline w-full border-b-2 border-neutral-100 border-opacity-100 py-4 dark:border-opacity-50">
+          <Link to="/paymentToPayStatement">Convert /payment array to array of payment IDs needed by /pay-statement endpoint</Link>
+        </li>
         <li
             class="font-medium text-blue-600 hover:underline w-full py-4">
             Check back soon for more.
