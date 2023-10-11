@@ -31,7 +31,7 @@ function CompareJSON() {
           }
         } else {
           result[id] = {
-            obj1: dict1[id]
+            previous: dict1[id]
           };
         }
       }
@@ -39,7 +39,7 @@ function CompareJSON() {
       for (const id in dict2) {
         if (!dict1[id]) {
           result[id] = {
-            obj2: dict2[id]
+            current: dict2[id]
           };
         }
       }
@@ -53,19 +53,19 @@ function CompareJSON() {
     }
   }
 
-  function deepDiff(obj1, obj2) {
+  function deepDiff(previous, current) {
     const diff = {};
     
-    for (const key in obj1) {
-      if (typeof obj1[key] === 'object' && obj1[key] !== null && obj2[key]) {
-        const nestedDiff = deepDiff(obj1[key], obj2[key]);
+    for (const key in previous) {
+      if (typeof previous[key] === 'object' && previous[key] !== null && current[key]) {
+        const nestedDiff = deepDiff(previous[key], current[key]);
         if (Object.keys(nestedDiff).length > 0) {
           diff[key] = nestedDiff;
         }
-      } else if (obj1[key] !== obj2[key]) {
+      } else if (previous[key] !== current[key]) {
         diff[key] = {
-          obj1: obj1[key],
-          obj2: obj2[key]
+          previous: previous[key],
+          current: current[key]
         };
       }
     }
