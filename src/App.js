@@ -6,6 +6,7 @@ import CalculateGrossWages from './components/CalculateGrossWages';
 import OrgHierarchy from './components/OrgHierarchy';
 import FilterInactive from './components/FilterInactive';
 import PaymentToPayStatement from './components/PaymentToPayStatement';
+import CompareJSON from './components/CompareJSON';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/orgHierarchy" element={< OrgHierarchy /> } />
           <Route path="/filterInactive" element={< FilterInactive /> } />
           <Route path="/paymentToPayStatement" element={< PaymentToPayStatement /> } />
+          <Route path="/compareJSON" element={< CompareJSON /> } />
         </Routes>
       </Router>
     </div>
