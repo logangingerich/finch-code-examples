@@ -25,6 +25,9 @@ function HomePage() {
         <li className="font-medium text-blue-600 hover:underline w-full border-b-2 border-neutral-100 border-opacity-100 py-4 dark:border-opacity-50">
           <Link to="/compareJSON">Compare two /directory arrays and return the diff, associated to the individual's ID</Link>
         </li>
+        <li className="font-medium text-blue-600 hover:underline w-full border-b-2 border-neutral-100 border-opacity-100 py-4 dark:border-opacity-50">
+          <Link to="/classCode">Aggregate Gross Pay by Class Code</Link>
+        </li>
         <li
             class="font-medium text-blue-600 hover:underline w-full py-4">
             Check back soon for more.

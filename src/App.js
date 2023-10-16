@@ -7,6 +7,7 @@ import OrgHierarchy from './components/OrgHierarchy';
 import FilterInactive from './components/FilterInactive';
 import PaymentToPayStatement from './components/PaymentToPayStatement';
 import CompareJSON from './components/CompareJSON';
+import ClassCode from './components/ClassCode';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/filterInactive" element={< FilterInactive /> } />
           <Route path="/paymentToPayStatement" element={< PaymentToPayStatement /> } />
           <Route path="/compareJSON" element={< CompareJSON /> } />
+          <Route path="/classCode" element={< ClassCode /> } />
         </Routes>
       </Router>
     </div>

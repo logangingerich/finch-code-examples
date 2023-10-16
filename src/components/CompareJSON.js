@@ -923,7 +923,7 @@ let demoCode2 = `
         <div className="grid grid-cols-2 gap-4">
         <div>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-          Try this example JSON arrays from Finch's /directory endpoint:
+          Try this example JSON array from Finch's /directory endpoint:
           </p>
           <div className="max-w mx-auto mt-6 bg-gray-900 rounded-lg overflow-hidden">
             <div className="p-4">
@@ -942,7 +942,7 @@ let demoCode2 = `
       </div>
       <div>
       <p className="mt-6 text-lg leading-8 text-gray-600">
-        Try this example JSON arrays from Finch's /directory endpoint:
+        Try this example JSON array from Finch's /directory endpoint:
           </p>
           <div className="max-w mx-auto mt-6 bg-gray-900 rounded-lg overflow-hidden">
             <div className="p-4">
