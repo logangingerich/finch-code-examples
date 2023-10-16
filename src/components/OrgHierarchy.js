@@ -443,6 +443,8 @@ let demoCode =
     <div className="flex flex-col justify-center items-center">
       <h3 className="text-4xl font-bold tracking-tight sm:text-6xl">Build Organizational Hierarchy</h3>
       <br />
+        <a target="_blank" rel="noreferrer" href="https://github.com/logangingerich/finch-code-examples/blob/main/src/components/OrgHierarchy.js" className='text-blue-500'>Click here to see the code.</a>
+      <br />
       <textarea
         className="block p-4 text-gray-900 border border-black rounded-lg bg-gray-100 sm:text-md focus:ring-blue-500 focus:border-blue-500"
         rows="5"

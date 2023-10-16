@@ -740,6 +740,8 @@ let demoCode2 = `[
     <div className="flex flex-col justify-center items-center">
       <h3 className="text-4xl font-bold tracking-tight sm:text-6xl">Compare /employment and /pay-statement arrays and aggregate gross pay by class code</h3>
       <br />
+        <a target="_blank" rel="noreferrer" href="https://github.com/logangingerich/finch-code-examples/blob/main/src/components/ClassCode.js" className='text-blue-500'>Click here to see the code.</a>
+      <br />
 
       <div className="grid grid-cols-2 gap-4">
         <div>
