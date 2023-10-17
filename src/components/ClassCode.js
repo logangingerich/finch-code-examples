@@ -13,10 +13,9 @@ function ClassCode() {
   const [jsonData2, setJsonData2] = useState(null);
   const [aggregation, setAggregation] = useState(null);
 
-  const parsed1 = JSON.parse(jsonData1);
-  const parsed2 = JSON.parse(jsonData2);
-
   const aggregateByClassCode = () => {
+	const parsed1 = JSON.parse(jsonData1);
+  	const parsed2 = JSON.parse(jsonData2);
     try {
         let classCodePayMap = {};
 

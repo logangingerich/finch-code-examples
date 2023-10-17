@@ -13,11 +13,10 @@ function CompareJSON() {
   const [jsonData2, setJsonData2] = useState(null);
   const [comparison, setComparison] = useState(null);
 
-  const parsed1 = JSON.parse(jsonData1);
-  const parsed2 = JSON.parse(jsonData2);
-
   const deepCompareJSON = () => {
-    console.log(typeof parsed1)
+    const parsed1 = JSON.parse(jsonData1);
+    const parsed2 = JSON.parse(jsonData2);
+
     try {
       const dict1 = parsed1.reduce((acc, curr) => ({ ...acc, [curr.id]: curr }), {});
       const dict2 = parsed2.reduce((acc, curr) => ({ ...acc, [curr.id]: curr }), {});
