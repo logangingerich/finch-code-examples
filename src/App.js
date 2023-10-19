@@ -8,6 +8,7 @@ import FilterInactive from './components/FilterInactive';
 import PaymentToPayStatement from './components/PaymentToPayStatement';
 import CompareJSON from './components/CompareJSON';
 import ClassCode from './components/ClassCode';
+import Percentage401k from './components/Percentage401k';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/paymentToPayStatement" element={< PaymentToPayStatement /> } />
           <Route path="/compareJSON" element={< CompareJSON /> } />
           <Route path="/classCode" element={< ClassCode /> } />
+          <Route path="/percentage401k" element={< Percentage401k /> } />
         </Routes>
       </Router>
     </div>
