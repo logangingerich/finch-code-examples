@@ -11,6 +11,7 @@ import {
 function FilterInactive() {
   const [jsonData, setJsonData] = useState('');
   const [active, setActive] = useState('');
+  const [parseError, setParseError] = useState(null);
 
   const filterInactiveAndFormat = (employees) => {
     try {
@@ -22,10 +23,12 @@ function FilterInactive() {
         .map(employee => ({'individual_id': employee.id}));
 
       setActive(output);
+      setParseError(null);
       return output;
     } catch (error) {
       console.error('An error occurred:', error);
       setActive(null);
+      setParseError("Parsing Error: Please double-check your JSON input.")
     }
   };
 
@@ -444,6 +447,7 @@ let demoCode =
         <br />
       <button className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" onClick={() => filterInactiveAndFormat(JSON.parse(jsonData))}>Calculate</button>
       <br />
+      {parseError}
       { active ? 
         <div className="max-w-2xl">
           <h2 className="text-4xl font-extrabold">Active Employee IDs to use with Finch /individual and /employment endpoints</h2>

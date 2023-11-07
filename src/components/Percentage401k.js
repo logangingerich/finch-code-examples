@@ -11,6 +11,7 @@ import {
 function Percentage401k() {
   const [jsonData, setJsonData] = useState('');
   const [data, setData] = useState('');
+  const [parseError, setParseError] = useState(null);
 
   const calculateMultiple401kPercentage = (input) => {
     try {
@@ -60,10 +61,12 @@ function Percentage401k() {
           });
       }
       setData(results);
+	  setParseError(null);
       return results;
     } catch (error) {
       console.error('An error occurred:', error);
       setData(null);
+	  setParseError("Parsing Error: Please double-check your JSON input.")
     }
   };
 
@@ -1388,6 +1391,7 @@ let demoCode =
         <br />
       <button className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" onClick={() => calculateMultiple401kPercentage(jsonData)}>Calculate</button>
       <br />
+	  {parseError}
       { data ? 
         <div className="max-w-2xl">
           <h2 className="text-4xl font-extrabold">Employee 401k benefit percentages</h2>

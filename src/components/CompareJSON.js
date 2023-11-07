@@ -12,6 +12,7 @@ function CompareJSON() {
   const [jsonData1, setJsonData1] = useState(null);
   const [jsonData2, setJsonData2] = useState(null);
   const [comparison, setComparison] = useState(null);
+  const [parseError, setParseError] = useState(null);
 
   const deepCompareJSON = () => {
     const parsed1 = JSON.parse(jsonData1);
@@ -43,11 +44,13 @@ function CompareJSON() {
         }
       }
       setComparison(result);
+      setParseError(null);
       console.log ("THE RESULT " + JSON.stringify(result))
       return result;
     } catch (error) {
       console.error('An error occurred:', error);
       setComparison(null);
+      setParseError("Parsing Error: Please double-check your JSON input.")
       return;
     }
   }
@@ -907,6 +910,7 @@ let demoCode2 = `
     </div>
     <button className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" onClick={deepCompareJSON}>Calculate</button>
       <br />
+      {parseError}
       {comparison !== null && (
         <div>
           <h2 className="text-4xl font-extrabold">JSON Diff</h2>

@@ -11,6 +11,7 @@ import {
 function PaymentToPayStatement() {
   const [jsonData, setJsonData] = useState('');
   const [convertedPayment, setConvertedPayment] = useState('');
+  const [parseError, setParseError] = useState(null);
 
   const paymentConversion = (payments) => {
     try {
@@ -26,10 +27,12 @@ function PaymentToPayStatement() {
     }
 
       setConvertedPayment(output);
+      setParseError(null);
       return output;
     } catch (error) {
       console.error('An error occurred:', error);
       setConvertedPayment(null);
+      setParseError("Parsing Error: Please double-check your JSON input.")
     }
   };
 
@@ -1204,6 +1207,7 @@ let demoCode =
         <br />
       <button className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" onClick={() => paymentConversion(JSON.parse(jsonData))}>Calculate</button>
       <br />
+      {parseError}
       { convertedPayment ? 
         <div className="max-w-2xl">
           <h2 className="text-4xl font-extrabold">Payment IDs to use with Finch's /pay-statement endpoint</h2>

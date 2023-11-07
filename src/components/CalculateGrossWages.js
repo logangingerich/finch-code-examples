@@ -11,6 +11,7 @@ import {
 function CalculateGrossWages() {
   const [jsonData, setJsonData] = useState('');
   const [grossWages, setGrossWages] = useState(null);
+  const [parseError, setParseError] = useState(null);
 
   const calculateGrossWages = () => {
     try {
@@ -46,9 +47,11 @@ function CalculateGrossWages() {
 
       // Update the state with the calculated gross wages
       setGrossWages(output);
+	  setParseError(null);
     } catch (error) {
       console.error('An error occurred:', error);
       setGrossWages(null);
+	  setParseError("Parsing Error: Please double-check your JSON input.")
     }
   };
 
@@ -520,6 +523,7 @@ function CalculateGrossWages() {
 
       <button className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" onClick={calculateGrossWages}>Calculate</button>
       <br />
+	  {parseError}
       {grossWages !== null && (
         <div>
           <h2 className="text-4xl font-extrabold">Gross Wages:</h2>

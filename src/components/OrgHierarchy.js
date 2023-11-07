@@ -11,16 +11,14 @@ import {
 function OrgHierarchy() {
   const [jsonData, setJsonData] = useState('');
   const [hierarchy, setHierarchy] = useState('');
+  const [parseError, setParseError] = useState(null);
 
   const createHierarchy = (employee_list, managerId = null) => {
     try {
-      // Parse the user-entered JSON data
-     // employee_list = JSON.parse(jsonData);
       console.log(typeof employee_list)
       let structure = [];
 
       for (let employee of employee_list) {
-        console.log(employee.id)
         if ((managerId === null && employee.manager.id === null) || (employee.manager.id === managerId)) {
           let children = createHierarchy(employee_list, employee.id);
     
@@ -34,12 +32,39 @@ function OrgHierarchy() {
 
       // Update the state with the calculated gross wages
       setHierarchy(structure);
+      setParseError(null);
+      console.log(countEmployeesByLevel(structure));
       return structure;
     } catch (error) {
       console.error('An error occurred:', error);
       setHierarchy(null);
+      setParseError("Parsing Error: Please double-check your JSON input.")
     }
   };
+
+  function countEmployeesByLevel(employees, currentLevel = 0, levelCounts = {}) {
+    // Initialize the count for the current level if it doesn't exist.
+    if (!levelCounts[currentLevel]) {
+      levelCounts[currentLevel] = 0;
+    }
+  
+    // Loop through the employees at the current level.
+    employees.forEach(employee => {
+      // Increment the count for the current level.
+      levelCounts[currentLevel]++;
+  
+      // If the employee has subordinates, recurse into them.
+      if (employee.subordinates && employee.subordinates.length > 0) {
+        countEmployeesByLevel(employee.subordinates, currentLevel + 1, levelCounts);
+      }
+    });
+  
+    // Convert the levelCounts object into an array of objects as requested.
+    return Object.keys(levelCounts).map(level => ({
+      level: parseInt(level),
+      numberOfEmployees: levelCounts[level]
+    }));
+  }
 
 
 //console.log(JSON.stringify(createHierarchy(data), null, 2));
@@ -456,6 +481,7 @@ let demoCode =
         <br />
       <button className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" onClick={() => createHierarchy(JSON.parse(jsonData))}>Calculate</button>
       <br />
+      {parseError}
       { hierarchy ? 
         <div>
           <h2 className="text-4xl font-extrabold">Organizational Hierarchy</h2>
