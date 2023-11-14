@@ -15,7 +15,6 @@ function Percentage401k() {
 
   const calculateMultiple401kPercentage = (input) => {
     try {
-      // Initialize an empty list to store the results
       let results = [];
 
       // Loop through each pay statement to calculate the 401k percentage
@@ -1372,7 +1371,6 @@ let demoCode =
 		]
 	}
 ]`
-
 
   return (
     <div className="flex flex-col justify-center items-center">

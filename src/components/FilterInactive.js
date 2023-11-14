@@ -32,9 +32,6 @@ function FilterInactive() {
     }
   };
 
-
-//console.log(JSON.stringify(createHierarchy(data), null, 2));
-
 let demoCode = 
 `[
     {

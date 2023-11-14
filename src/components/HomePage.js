@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function HomePage() {
   return (
     <div>
-        <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">Finch++</h1>
+        <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">Finch++</h1>
           <p className="mt-6 text-lg leading-8 text-gray-600">
             Click on an option below to see how you can use the raw data from Finch to easily accomplish your use case.
           </p>

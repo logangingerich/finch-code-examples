@@ -15,7 +15,6 @@ function OrgHierarchy() {
 
   const createHierarchy = (employee_list, managerId = null) => {
     try {
-      console.log(typeof employee_list)
       let structure = [];
 
       for (let employee of employee_list) {
@@ -65,9 +64,6 @@ function OrgHierarchy() {
       numberOfEmployees: levelCounts[level]
     }));
   }
-
-
-//console.log(JSON.stringify(createHierarchy(data), null, 2));
 
 let demoCode = 
 `[

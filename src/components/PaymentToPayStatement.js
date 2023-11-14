@@ -15,7 +15,6 @@ function PaymentToPayStatement() {
 
   const paymentConversion = (payments) => {
     try {
-
       let output = [];
 
      // Iterate over each payment
